@@ -19,9 +19,9 @@
 # }
 resource "aws_route53_record" "mymain" {
 zone_id = "Z05078902NX01H5WLBV6I"
-name    = "mydomain.merycicek.com"
+name    = "yourdomain.merycicek.com"
 type    = "A"
-ttl     = "30"
+ttl     = "300"
 # records = ["${aws_instance.mymain.public_ip}"]
 }
 # NOTE: The aws_route53_zone vpc argument accepts multiple configuration
