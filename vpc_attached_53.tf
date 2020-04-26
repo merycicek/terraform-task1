@@ -22,7 +22,7 @@ zone_id = "Z3AADJGX6KTTL2"
 name    = "www.mydomain.merycicek.com"
 type    = "A"
 ttl     = "30"
-records = ["${aws_instance.mymain.public_ip}"]
+# records = ["${aws_instance.mymain.public_ip}"]
 }
 # NOTE: The aws_route53_zone vpc argument accepts multiple configuration
 #       blocks. The below usage of the single vpc configuration, the
