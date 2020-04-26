@@ -1,7 +1,7 @@
 resource "aws_route53_zone" "mymain" {
   name = "yourdomain.com"
   vpc {
-    vpc_id = "${aws_vpc.web.id}"
+    vpc_id = "${aws_vpc.mymain.id}"
   }
 }
 
