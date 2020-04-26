@@ -35,4 +35,5 @@ resource "aws_security_group" "allow_tls" {
   tags = {
     Name = "task1_terraform1"
   }
-}
+  
+  }
