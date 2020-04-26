@@ -10,8 +10,8 @@ enable_dns_hostnames = true
 enable_dns_support   = true
 }
 
-resource "aws_route53_zone" "yourdomain" {
-name = "yourdomain.com"
+resource "aws_route53_zone" "mydomain" {
+name = "merycicek.com"
 
 # NOTE: The aws_route53_zone vpc argument accepts multiple configuration
 #       blocks. The below usage of the single vpc configuration, the
@@ -28,6 +28,6 @@ ignore_changes = ["vpc"]
 }
 
 resource "aws_route53_zone_association" "secondary" {
-  zone_id = "${aws_route53_zone.yourdomain.zone_id}"
+  zone_id = "${aws_route53_zone.mydomain.zone_id}"
   vpc_id  = "${aws_vpc.secondary.id}"
 }
