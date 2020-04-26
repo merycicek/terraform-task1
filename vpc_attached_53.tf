@@ -19,7 +19,7 @@ enable_dns_support   = true
 # }
 resource "aws_route53_record" "mymain" {
 zone_id = "${aws_route53_zone.mymain.zone_id}"
-name    = "yourdomain.merycicek.com"
+name    = "www.mydomain.merycicek.com"
 type    = "A"
 ttl     = "30"
 }
