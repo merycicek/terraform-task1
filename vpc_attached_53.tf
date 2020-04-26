@@ -10,14 +10,19 @@ enable_dns_hostnames = true
 enable_dns_support   = true
 }
 
-resource "aws_route53_record" "web" {
-  zone_id = "${aws_route53_zone.web.zone_id}"
-  name    = "www.yourdomain.merycicek.com"
-  type    = "A"
-  ttl     = "300"
-  records = ["${aws_instance.web.public_ip}"]
+# resource "aws_route53_record" "web" {
+#   zone_id = "${aws_route53_zone.web.zone_id}"
+#   name    = "www.yourdomain.merycicek.com"
+#   type    = "A"
+#   ttl     = "300"
+#   records = ["${aws_instance.web.public_ip}"]
+# }
+resource "aws_route53_record" "mymain" {
+zone_id = "${aws_route53_zone.mymain.zone_id}"
+name    = "yourdomain.merycicek.com"
+type    = "A"
+ttl     = "30"
 }
-
 # NOTE: The aws_route53_zone vpc argument accepts multiple configuration
 #       blocks. The below usage of the single vpc configuration, the
 #       lifecycle configuration, and the aws_route53_zone_association
@@ -33,6 +38,6 @@ ignore_changes = ["vpc"]
 
 
 resource "aws_route53_zone_association" "secondary" {
-  zone_id = "${aws_route53_zone.web.zone_id}"
+  zone_id = "${aws_route53_zone.main.zone_id}"
   vpc_id  = "${aws_vpc.secondary.id}"
 }
