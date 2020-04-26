@@ -1,17 +1,22 @@
-resource "aws_vpc" "primary" {
-cidr_block           = "10.6.0.0/16"
-enable_dns_hostnames = true
-enable_dns_support   = true
-}
+# resource "aws_vpc" "primary" {
+# cidr_block           = "10.6.0.0/16"
+# enable_dns_hostnames = true
+# enable_dns_support   = true
+# }
 
-resource "aws_vpc" "secondary" {
-cidr_block           = "10.7.0.0/16"
-enable_dns_hostnames = true
-enable_dns_support   = true
-}
+# resource "aws_vpc" "secondary" {
+# cidr_block           = "10.7.0.0/16"
+# enable_dns_hostnames = true
+# enable_dns_support   = true
+# }
 
-resource "aws_route53_zone" "mydomain" {
-name = "merycicek.com"
+resource "aws_route53_record" "mydomain" {
+  zone_id = "${aws_route53_zone.mydomain.zone_id}"
+  name    = "www.yourdomain.merycicek.com"
+  type    = "A"
+  ttl     = "300"
+  records = ["${aws_instance.web.public_ip}"]
+}
 
 # NOTE: The aws_route53_zone vpc argument accepts multiple configuration
 #       blocks. The below usage of the single vpc configuration, the
