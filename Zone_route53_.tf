@@ -1,5 +1,8 @@
 resource "aws_route53_zone" "mymain" {
   name = "yourdomain.com"
+  vpc {
+    vpc_id = "vpc-007235786ca81350c"
+  }
 }
 
 resource "aws_route53_zone" "yourdomain" {
