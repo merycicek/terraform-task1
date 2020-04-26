@@ -18,7 +18,7 @@ enable_dns_support   = true
 #   records = ["${aws_instance.web.public_ip}"]
 # }
 resource "aws_route53_record" "mymain" {
-zone_id = "Z3AADJGX6KTTL2"
+zone_id = "Z05078902NX01H5WLBV6I"
 name    = "www.mydomain.merycicek.com"
 type    = "A"
 ttl     = "30"
