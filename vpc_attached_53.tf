@@ -10,8 +10,8 @@
 # enable_dns_support   = true
 # }
 
-resource "aws_route53_record" "mydomain" {
-  zone_id = "${aws_route53_zone.mydomain.zone_id}"
+resource "aws_route53_record" "web" {
+  zone_id = "${aws_route53_zone.web.zone_id}"
   name    = "www.yourdomain.merycicek.com"
   type    = "A"
   ttl     = "300"
@@ -33,6 +33,6 @@ ignore_changes = ["vpc"]
 
 
 resource "aws_route53_zone_association" "secondary" {
-  zone_id = "${aws_route53_zone.mydomain.zone_id}"
+  zone_id = "${aws_route53_zone.web.zone_id}"
   vpc_id  = "${aws_vpc.secondary.id}"
 }
