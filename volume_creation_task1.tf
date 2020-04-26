@@ -1,7 +1,7 @@
 
-resource "aws_ebs_volume" "web" {
+resource "aws_ebs_volume" "web1" {
   device_name = "/dev/sdh"
-  volume_id   = "${aws_ebs_volume.web.id}"
+  volume_id   = "${aws_ebs_volume.web1.id}"
   instance_id = "${aws_instance.web.id}"
   availability_zone = "us-west-2a"
   size              = 100
