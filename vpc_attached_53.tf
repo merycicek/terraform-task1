@@ -19,7 +19,7 @@
 # }
 resource "aws_route53_record" "mymain" {
 zone_id = "Z05078902NX01H5WLBV6I"
-name    = "yourdomain.merycicek.com"
+name    = "merycicek.com"
 type    = "A"
 ttl     = "300"
 # records = ["${aws_instance.mymain.public_ip}"]
