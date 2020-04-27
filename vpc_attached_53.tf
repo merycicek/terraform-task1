@@ -18,12 +18,14 @@
 #   records = ["${aws_instance.web.public_ip}"]
 # }
 resource "aws_route53_record" "mymain" {
-zone_id = "Z05078902NX01H5WLBV6I"
-name    = "merycicek.com"
-type    = "A"
-ttl     = "300"
-# records = ["${aws_instance.mymain.public_ip}"]
+  zone_id = "Z05078902NX01H5WLBV6I"
+  name    = "merycicek.com"
+  type    = "A"
+  ttl     = "300"
+
+  # records = ["${aws_instance.mymain.public_ip}"]
 }
+
 # NOTE: The aws_route53_zone vpc argument accepts multiple configuration
 #       blocks. The below usage of the single vpc configuration, the
 #       lifecycle configuration, and the aws_route53_zone_association
@@ -32,6 +34,7 @@ ttl     = "300"
 # vpc {
 # vpc_id = "${aws_vpc.primary.id}"
 # }
+
 
 # lifecycle {
 # ignore_changes = ["vpc"]
@@ -42,3 +45,4 @@ ttl     = "300"
 #   zone_id = "${aws_route53_zone.mymain.zone_id}"
 #   vpc_id  = "${aws_vpc.secondary.id}"
 # }
+
